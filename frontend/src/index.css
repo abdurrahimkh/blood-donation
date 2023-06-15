@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Brooklyn';
+        src: url('/fonts/Brooklyn.otf');
+    }
+}
+
+@layer base {
+    .center {
+        @apply flex justify-center items-center
+    }
+}

@@ -1,0 +1,21 @@
+.one:hover span:last-child {
+  width: 100%;
+}
+
+.two:hover span {
+  width: 50%;
+}
+
+.three:hover span {
+  height: 100%;
+}
+
+.g-recaptcha {
+  transform:scale(0.9) !important;
+  transform-origin:0 0 !important;
+}
+
+.active{
+  border-bottom: 4px solid #FB000A;
+  
+}
