@@ -23,6 +23,7 @@ const Register = () => {
       phone: "",
       email: "",
       username: "",
+      city: "",
       password: "",
     },
   });
@@ -75,7 +76,6 @@ const Register = () => {
                   </Typography>
                 )}
               </div>
-
               <div className="flex gap-3">
                 <div className="w-56 mb-3 ">
                   <select
@@ -93,10 +93,13 @@ const Register = () => {
                       Blood Group
                     </option>
                     <option>A+</option>
+                    <option>A-</option>
                     <option>B+</option>
+                    <option>B-</option>
                     <option>AB+</option>
                     <option>AB-</option>
                     <option>O+</option>
+                    <option>O-</option>
                   </select>
                   {errors?.bloodGroup && (
                     <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">
@@ -205,6 +208,7 @@ const Register = () => {
                     required: "You must specify an address",
                   })}
                 />
+
                 {errors?.address && (
                   <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">
                     <InformationCircleIcon className="w-4 h-4 -mt-px" />
@@ -212,33 +216,64 @@ const Register = () => {
                   </Typography>
                 )}
               </div>
-              <div className="mb-3">
-                <Input
-                  label="Phone"
-                  type="text"
-                  error={Boolean(errors?.phone)}
-                  {...register("phone", {
-                    required: "You must specify a phone number",
-                    pattern: {
-                      value: /^[0-9]+$/,
-                      message: "Invalid phone number.",
-                    },
-                    min: {
-                      value: 11,
-                      message: "number must be 11 digits",
-                    },
-                    max: {
-                      value: 11,
-                      message: "number must be 11 digits",
-                    },
-                  })}
-                />
-                {errors?.phone && (
-                  <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">
-                    <InformationCircleIcon className="w-4 h-4 -mt-px" />
-                    {errors?.phone?.message}
-                  </Typography>
-                )}
+
+              <div className="flex gap-3">
+                <div className="w-56 mb-3">
+                  <Input
+                    label="Phone"
+                    type="text"
+                    error={Boolean(errors?.phone)}
+                    {...register("phone", {
+                      required: "You must specify a phone number",
+                      pattern: {
+                        value: /^[0-9]+$/,
+                        message: "Invalid phone number.",
+                      },
+                      min: {
+                        value: 11,
+                        message: "number must be 11 digits",
+                      },
+                      max: {
+                        value: 11,
+                        message: "number must be 11 digits",
+                      },
+                    })}
+                  />
+                  {errors?.phone && (
+                    <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">
+                      <InformationCircleIcon className="w-4 h-4 -mt-px" />
+                      {errors?.phone?.message}
+                    </Typography>
+                  )}
+                </div>
+                <div className="w-56 mb-3 ">
+                  <select
+                    style={{ border: Boolean(errors?.city) && "1px solid red", color: Boolean(errors?.city) && "red" }}
+                    label="Blood Group"
+                    className="w-full bg-transparent text-blue-gray-500 font-sans font-normal text-left outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all border text-sm px-3 rounded-[7px] border-blue-gray-200 py-[0.7rem] focus:border-blue-500  hover:cursor-pointer"
+                    {...register("city", {
+                      required: {
+                        value: true,
+                        message: "City is required",
+                      },
+                    })}
+                  >
+                    <option value="" disabled selected>
+                      City
+                    </option>
+                    <option>Peshawar</option>
+                    <option>Islamabad</option>
+                    <option>Karachi</option>
+                    <option>Lahore</option>
+                    <option>Multan</option>
+                  </select>
+                  {errors?.bloodGroup && (
+                    <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">
+                      <InformationCircleIcon className="w-4 h-4 -mt-px" />
+                      {errors?.bloodGroup?.message}
+                    </Typography>
+                  )}
+                </div>
               </div>
               <div className="mb-3">
                 <Input

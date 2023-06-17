@@ -6,7 +6,9 @@
     @font-face {
         font-family: 'Brooklyn';
         src: url('/fonts/Brooklyn.otf');
+        font-weight: normal;
     }
+  
 }
 
 @layer base {

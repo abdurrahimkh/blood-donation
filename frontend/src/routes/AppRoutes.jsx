@@ -8,6 +8,7 @@ import Donate from "../pages/user/donate";
 import { Footer } from "../components/Footer";
 import Help from "../pages/user/help";
 import About from "../pages/user/about";
+import FindDonor from "../pages/user/find";
 
 const AppRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const AppRoutes = () => {
         <Route path="/donate" element={<Donate />} />
         <Route path="/get-help" element={<Help />} />
         <Route path="/about" element={<About />} />
+        <Route path="/find-donor" element={<FindDonor />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
