@@ -30,7 +30,7 @@ export const Footer = () => {
           <div className="flex">
             <p className="mr-1 text-gray-800">Address:</p>
             <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" aria-label="Our address" title="Our address" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">
-              312 Lovely Street, NY
+              312 Lovely Street, PK
             </a>
           </div>
         </div>

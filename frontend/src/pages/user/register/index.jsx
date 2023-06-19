@@ -42,7 +42,7 @@ const Register = () => {
     setCaptachVerified(true);
   }
   return (
-    <section className="h-[91vh]">
+    <section className="md:h-[91vh]">
       <div className="container px-6 py-10">
         <div className="g-6 flex gap-5 h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
@@ -50,7 +50,7 @@ const Register = () => {
             <img src="/illu1.png" className="w-full" alt="Phone image" />
           </div>
 
-          <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
+          <div className="w-11/12 md:w-8/12 lg:ml-6 lg:w-5/12">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-3">
                 <Input
@@ -134,8 +134,8 @@ const Register = () => {
                   )}
                 </div>
               </div>
-              <div className="flex gap-3">
-                <div className="w-56 mb-3 ">
+              <div className="flex flex-col md:flex-row gap-3">
+                <div className="w-[21.7rem] md:w-56 mb-3 ">
                   <Input
                     label="Username"
                     type="text"
@@ -154,7 +154,7 @@ const Register = () => {
                     </Typography>
                   )}
                 </div>
-                <div className="w-56 mb-3 ">
+                <div className="w-[21.7rem] md:w-56 mb-3 ">
                   <Input
                     label="Age"
                     type="text"
@@ -303,7 +303,7 @@ const Register = () => {
                 <button disabled={captachVerified} className="mt-3 relative w-full inline-flex items-center justify-center p-4  py-2 overflow-hidden font-medium text-secondary transition duration-300 ease-out border border-secondary rounded-lg shadow-md group hover:cursor-pointer">
                   <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-secondary group-hover:translate-x-0 ease">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
                   </span>
                   <span className="absolute flex items-center justify-center w-full h-full text-secondary transition-all duration-300 transform group-hover:translate-x-full ease">Login</span>
@@ -313,7 +313,7 @@ const Register = () => {
                 <button disabled className="mt-3 relative w-full inline-flex items-center justify-center p-4  py-2 overflow-hidden font-medium text-gray-500 transition duration-300 ease-out border border-gray-500 rounded-lg shadow-md group">
                   <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-gray-500 group-hover:translate-x-0 ease">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
                   </span>
                   <span className="absolute flex items-center justify-center w-full h-full text-gray-500 transition-all duration-300 transform group-hover:translate-x-full ease">Register</span>

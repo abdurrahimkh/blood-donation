@@ -23,7 +23,7 @@ const AppRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/find-donor" element={<FindDonor />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 };

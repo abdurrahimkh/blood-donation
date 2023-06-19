@@ -2,11 +2,11 @@ import { Carousel, Typography, Button } from "@material-tailwind/react";
 
 export default function Gallery() {
   return (
-    <div className="px-24 pb-16 ">
+    <div className="px-5 md:px-24 pb-16 ">
       <h1 className="text-3xl text-center font-brooklyn font-semibold text-gray-800 mb-5">
         Saving Lives, One <span className="text-secondary  ">Drop</span> at a Time.
       </h1>
-      <Carousel className="rounded-xl overflow-y-hidden" navigation="" loop autoplay>
+      <Carousel className="rounded-xl overflow-y-hidden" navigation={() => {}} loop autoplay>
         <div className="relative h-[20rem] w-full">
           <img src="/icons/quotes.png" alt="quotes" className="absolute w-32 top-10 left-24 opacity-25 " />
           <img src="/icons/quotes.png" alt="quotes" className="absolute w-32 top-20 right-24 opacity-25 rotate-180" />

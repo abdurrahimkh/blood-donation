@@ -78,7 +78,7 @@ export default function ComplexNavbar() {
         <Link to="/">
           <div className="center hover:drop-shadow-md ">
             <img src={logo} alt="logo" height={20} width={40} />
-            <p className="mr-4 ml-2 cursor-pointer py-1.5 font-bold text-primary font-brooklyn">Blood Donation</p>
+            <p className="mr-4 ml-2 cursor-pointer py-1.5 font-black text-primary font-brooklyn">Blood Donation</p>
           </div>
         </Link>
         <div className="absolute top-2/4 left-2/4 hidden -translate-x-2/4 -translate-y-2/4 lg:block">

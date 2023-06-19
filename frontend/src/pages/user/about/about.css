@@ -20,13 +20,12 @@
   
   .about-col {
     transition: transform 1s;
-    width: 25%;
     display: inline-block;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 5px;
     position: relative;
     background: white;
-    margin: 2%;
+    max-height: 400px;
   }
   
   .about-col:hover {
@@ -34,14 +33,11 @@
   }
   
   .image img {
-    width: 50%;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
   }
   
-  .about h3 {
-    font-family: "Alegreya Sans SC", sans-serif;
-  }
+ 
   
   .about-col p {
     padding: 3px;
