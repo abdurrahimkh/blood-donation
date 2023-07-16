@@ -20,6 +20,10 @@ export const navListItems = [
     label: "Get Help",
     location: "/get-help",
   },
+  {
+    label: "Login",
+    location: "/donor/login",
+  },
 ];
 
 export const districts = [
@@ -251,4 +255,80 @@ export const districts = [
   { value: "Washuk" },
   { value: "Zhob" },
   { value: "Ziarat" },
+];
+
+export const eventsList = [
+  {
+    id: 1,
+    image: "https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eveniet iure sit harum iste. Commodi libero tenetur error itaque obcaecati cum neque. Praesentium impedit minima doloremque asperiores ipsam cum perferendis cumque rem natus omnis eum officiis adipisci, laudantium voluptatibus dignissimos sapiente mollitia ullam obcaecati harum quos accusamus? A vitae doloremque laborum doloribus omnis culpa quaerat illo cumque dolore quia repudiandae, repellendus magni, ipsum assumenda provident laudantium eum impedit. Voluptas eveniet deleniti veniam hic culpa iure at placeat facere voluptatum beatae? Commodi deleniti tenetur quo a, aperiam ratione iure, numquam, minus optio odit non molestias? Fugiat culpa sint delectus inventore quo explicabo aliquam error natus quisquam odit ad, officiis sunt repudiandae aliquid consequuntur, harum ipsum, tempore reiciendis eligendi! Illo ratione eum ullam earum dicta quo nemo harum exercitationem, modi ab a perspiciatis obcaecati deserunt atque necessitatibus at odio numquam perferendis consequatur. Molestiae accusamus molestias veniam facere excepturi possimus nam aliquam veritatis at eligendi consequuntur autem deserunt illo debitis ad corrupti repellendus officiis, neque optio laborum hic aspernatur pariatur! Sit explicabo quis ducimus enim? Error, modi id? Officia quasi ipsa ducimus, eaque minima nisi accusantium tenetur, voluptates ad, tempore non consequatur et nostrum ab earum quidem veritatis impedit voluptate odio quos saepe.",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 2,
+    image: "https://images.pexels.com/photos/2123755/pexels-photo-2123755.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260",
+    title: "Conquer the World",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 3,
+    image: "https://images.pexels.com/photos/1576937/pexels-photo-1576937.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 4,
+    image: "https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 5,
+    image: "https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 6,
+    image: "https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 7,
+    image: "https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 8,
+    image: "https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
+  {
+    id: 9,
+    image: "https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260",
+    title: "Diving to the deep",
+    short_desc: "Sed ut perspiciatis unde omnis iste natus error sit sed quia consequuntur magni voluptatem doloremque.",
+    full_desc: "",
+    date: "13 Jul 2020",
+  },
 ];

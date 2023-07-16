@@ -6,7 +6,7 @@ export default function CarouselEl() {
     <Carousel
       autoplay={true}
       loop={true}
-      className="!max-h-[28rem] mb-10"
+      className="mb-10"
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
           {new Array(length).fill("").map((_, i) => (
@@ -15,9 +15,15 @@ export default function CarouselEl() {
         </div>
       )}
     >
-      <img src={Slider1} alt="image 2" className="max-h-[28rem] w-full object-cover" />
-      <img src="https://www.um.edu.mt/__data/assets/image/0007/305296/varieties/banner.jpg" alt="image 1" className="max-h-[28rem] w-full object-cover" />
-      <img src="https://wallpapercave.com/wp/wp11201284.jpg" alt="image 3" className="max-h-[28rem] w-full" />
+      <div>
+        <img src={Slider1} alt="image 2" className=" w-full object-cover" />
+      </div>
+      <div>
+        <img style={{ height: "calc(100vh - 58px)" }} src="https://www.um.edu.mt/__data/assets/image/0007/305296/varieties/banner.jpg" alt="image 1" className=" w-full object-cover" />
+      </div>
+      <div>
+        <img src="https://wallpapercave.com/wp/wp11201284.jpg" alt="image 3" className=" w-full" />
+      </div>
     </Carousel>
   );
 }

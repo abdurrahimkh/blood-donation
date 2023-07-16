@@ -14,7 +14,7 @@ const Animation = ({ children, left }) => {
 
   return (
     <div ref={ref}>
-      <motion.div variants={{ hidden: { x: left ? "-100vw" : "100vw" }, visible: { x: 0 } }} initial="hidden" animate={anime} transition={{ duration: 0.6, delay: 0.25 }}>
+      <motion.div variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} initial="hidden" animate={anime} transition={{ duration: 1 }}>
         {children}
       </motion.div>
     </div>

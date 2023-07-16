@@ -5,11 +5,12 @@ import WhyDonate from "./WhyDonate";
 import Events from "./Events";
 import Gallery from "./Gallery";
 import Animation from "../../../components/Animation";
+import Slider from "./Slider";
 
 const Home = () => {
   return (
     <>
-      <Carousel />
+      <Slider />
       <Animation left={false}>
         <About />
       </Animation>

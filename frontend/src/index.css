@@ -16,3 +16,7 @@
         @apply flex justify-center items-center
     }
 }
+
+.size-page {
+    height: calc(100vh - 58px);
+}

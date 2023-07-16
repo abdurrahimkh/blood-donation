@@ -4,10 +4,14 @@ import Gallery from "../home/Gallery";
 import Mission from "./Mission";
 import Stats from "./Stats";
 import Animation from "../../../components/Animation";
+import AboutSlider from "./AboutSlider";
+import Banner from "../help/Banner";
 
 const About = () => {
   return (
     <>
+      {/* <AboutSlider /> */}
+      <Banner image={"about.jpeg"} title={"About Us"} subtitle={"Get to Know Us"} />
       <section id="about-us">
         <div className="about">
           <h1 className="text-3xl heading font-brooklyn">
