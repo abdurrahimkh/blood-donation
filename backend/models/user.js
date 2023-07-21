@@ -13,7 +13,6 @@ const UserSchema = new mongoose.Schema(
     blood_group: {
       type: String,
       required: true,
-      enum: ["AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"],
     },
     donation_history: {
       type: Array,

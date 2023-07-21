@@ -4,9 +4,9 @@ import cors from "cors";
 
 import "./config.js";
 import Auth from "./routes/auth_routes.js";
-
-import * as path from "path";
-import { fileURLToPath } from "url";
+import Blood from "./routes/donor_routes.js";
+import Request from "./routes/request_routes.js";
+import Donation from "./routes/donation_routes.js";
 
 const app = express();
 dotenv.config();
@@ -21,9 +21,10 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
+app.use(express.static("public"));
 
 //All APi's Endponits
-app.use("/api/v1", Auth);
+app.use("/api/v1", Auth, Blood, Request, Donation);
 
 app.use(express.static("public"));
 app.use("*", (req, res) => {

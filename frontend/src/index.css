@@ -20,3 +20,11 @@
 .size-page {
     height: calc(100vh - 58px);
 }
+
+
+.MuiDataGrid-columnHeaders {
+    background: rgb(239, 83, 80);
+    color: white;
+    font-size: 13px;
+}
+

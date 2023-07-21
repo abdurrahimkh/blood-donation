@@ -90,7 +90,7 @@ function NavList() {
           return;
         } else {
           return (
-            <NavLink key={key} to={location} className="relative w-max two text-[15px]">
+            <NavLink style={{ background: "white" }} key={key} to={location} className="relative w-max two text-[15px]">
               <span>{label}</span>
               <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-1 bg-secondary rounded-full "></span>
               <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-1 bg-secondary rounded-full"></span>

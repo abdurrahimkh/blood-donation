@@ -8,6 +8,7 @@ import { useRegisterMutation } from "../../../api";
 import { toast } from "react-hot-toast";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { cities } from "../../../constants";
 
 const Register = () => {
   const [captachVerified, setCaptachVerified] = useState(false);
@@ -127,14 +128,14 @@ const Register = () => {
                     <option value="" disabled selected>
                       Blood Group
                     </option>
-                    <option>A+</option>
-                    <option>A-</option>
-                    <option>B+</option>
-                    <option>B-</option>
-                    <option>AB+</option>
-                    <option>AB-</option>
-                    <option>O+</option>
-                    <option>O-</option>
+                    <option value="a-p">A+</option>
+                    <option value="a-n">A-</option>
+                    <option value="b-p">B+</option>
+                    <option value="b-n">B-</option>
+                    <option value="ab-p">AB+</option>
+                    <option value="ab-n">AB-</option>
+                    <option value="o-p">O+</option>
+                    <option value="o-n">O-</option>
                   </select>
                   {errors?.bloodGroup && (
                     <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">
@@ -212,8 +213,8 @@ const Register = () => {
               </div>
 
               <div className="flex gap-3">
-                <div className="w-56 mb-3">
-                  <Input label="Phone" type="text" error={Boolean(errors?.phone)} {...register("phone")} />
+                <div className="w-56 mb-3 ">
+                  <Input className="h-[2.8rem]" label="Phone" type="text" error={Boolean(errors?.phone)} {...register("phone")} />
                   {errors?.phone && (
                     <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">
                       <InformationCircleIcon className="w-4 h-4 -mt-px" />
@@ -231,11 +232,9 @@ const Register = () => {
                     <option value="" disabled selected>
                       City
                     </option>
-                    <option>Peshawar</option>
-                    <option>Islamabad</option>
-                    <option>Karachi</option>
-                    <option>Lahore</option>
-                    <option>Multan</option>
+                    {cities.map((city) => (
+                      <option value={city.value}>{city.label}</option>
+                    ))}
                   </select>
                   {errors?.city && (
                     <Typography variant="small" color="red" className="flex items-center gap-1 font-normal mt-3">

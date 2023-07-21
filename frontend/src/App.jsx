@@ -23,7 +23,7 @@ const App = () => {
               background: "#ff756b",
               color: "white",
               fontSize: "17px",
-              fontWeight: "bold",
+              fontWeight: "500",
             },
             iconTheme: {
               primary: "white",

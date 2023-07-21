@@ -11,11 +11,11 @@ const Banner = ({ image, title, subtitle }) => {
       </div>
       <div className="drop-animation-banner">
         <p className="text-white text-5xl font-brooklyn font-black">{title}</p>
-        <div class="flex items-center justify-center">
-          <div class="w-full max-w-xs flex items-center">
-            <div class="flex-grow border-b-4 border-white "></div>
-            <div class="mx-4 text-white">{subtitle}</div>
-            <div class="flex-grow border-b-4 border-white "></div>
+        <div className="flex items-center justify-center">
+          <div className="w-full max-w-xs flex items-center">
+            <div className="flex-grow border-b-4 border-white "></div>
+            <div className="mx-4 text-white">{subtitle}</div>
+            <div className="flex-grow border-b-4 border-white "></div>
           </div>
         </div>
       </div>

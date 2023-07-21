@@ -92,62 +92,105 @@ export const api = createApi({
       },
       providesTags: ["User"],
     }),
-    getUsers: build.query({
-      query: (page) => `Users/?page=${page}`,
-      providesTags: ["Users"],
-    }),
-    getAllUsers: build.query({
-      query: (page) => ({
-        url: "/cloths",
-        method: "GET",
-        params: {
-          page,
-        },
-      }),
-      providesTags: ["Users"],
-    }),
-    getUserById: build.query({
-      query: (id) => `/cloths/${id}`,
-      providesTags: ["Users"],
-    }),
-    getUsersByFilter: build.query({
+    getDonors: build.query({
       query: (param) => {
         return {
-          url: "/cloths",
+          url: "/donors",
           method: "GET",
           params: param,
         };
       },
-      providesTags: ["Users"],
+      providesTags: ["Donors"],
     }),
-    addUser: build.mutation({
+    getDonorsAll: build.query({
+      query: () => {
+        return {
+          url: "/donors-all",
+          method: "GET",
+        };
+      },
+      providesTags: ["Donors"],
+    }),
+    postRequest: build.mutation({
       query: (data) => {
         return {
-          url: "/cloths_create",
+          url: "create-request",
           method: "POST",
           body: data,
         };
       },
-      invalidatesTags: ["Users"],
+      providesTags: ["User"],
+    }),
+    getRequestsAll: build.query({
+      query: () => {
+        return {
+          url: "/get-requests",
+          method: "GET",
+        };
+      },
+      providesTags: ["Requests"],
+    }),
+    postDonation: build.mutation({
+      query: (data) => {
+        return {
+          url: "/submit-donation",
+          method: "POST",
+          body: data,
+        };
+      },
+      providesTags: ["User"],
+    }),
+    getDonationAll: build.query({
+      query: () => {
+        return {
+          url: "/get-donations",
+          method: "GET",
+        };
+      },
+      providesTags: ["Requests"],
+    }),
+    getUserById: build.query({
+      query: (id) => `/user/${id}`,
+      providesTags: ["Donors"],
+    }),
+    getDonorsByFilter: build.query({
+      query: (param) => {
+        return {
+          url: "/user",
+          method: "GET",
+          params: param,
+        };
+      },
+      providesTags: ["Donors"],
+    }),
+    addUser: build.mutation({
+      query: (data) => {
+        return {
+          url: "/user_create",
+          method: "POST",
+          body: data,
+        };
+      },
+      invalidatesTags: ["Donors"],
     }),
     editUser: build.mutation({
       query: (data) => {
         return {
-          url: `cloths/${data.id}/`,
+          url: `user/${data.id}/`,
           method: "PUT",
           body: data.data,
         };
       },
-      invalidatesTags: ["Users"],
+      invalidatesTags: ["Donors"],
     }),
     deleteUser: build.mutation({
       query: (id) => {
         return {
-          url: `/cloths/${id}/`,
+          url: `/user/${id}/`,
           method: "DELETE",
         };
       },
-      invalidatesTags: ["Users"],
+      invalidatesTags: ["Donors"],
     }),
     getUserOrders: build.query({
       query: (id) => {
@@ -161,4 +204,19 @@ export const api = createApi({
   }),
 });
 
-export const { useRegisterMutation, useVerifyEmailMutation, useLoginMutation, useUpdateProfileMutation, useResendEmailMutation, useForgetPasswordMutation, useResetPasswordMutation } = api;
+export const {
+  useRegisterMutation,
+  useVerifyEmailMutation,
+  useLoginMutation,
+  useUpdateProfileMutation,
+  useResendEmailMutation,
+  useForgetPasswordMutation,
+  useResetPasswordMutation,
+  useGetDonorsQuery,
+  useGetDonorsAllQuery,
+  usePostRequestMutation,
+  useGetRequestsAllQuery,
+  usePostDonationMutation,
+  useGetDonationAllQuery,
+  useUpdatePictureMutation,
+} = api;
