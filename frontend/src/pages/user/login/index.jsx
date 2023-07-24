@@ -29,7 +29,6 @@ const Login = () => {
   });
 
   function onSubmit(data) {
-    console.log(data);
     login(data);
   }
 

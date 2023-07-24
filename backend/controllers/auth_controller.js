@@ -1,4 +1,5 @@
 import { User } from "../models/user.js";
+import { Statistics } from "../models/statistics.js";
 import bycrypt from "bcryptjs";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
@@ -115,19 +116,36 @@ export const userLogin = (req, res) => {
 };
 export const userUpdate = async (req, res) => {
   const { _id } = req.params;
-  const { password } = req.body;
+  const { password, is_savedlife } = req.body;
+
   let passwordUpdate = false;
   let newPassword;
+  const currentDate = new Date();
   if (password) {
     passwordUpdate = true;
     newPassword = await bycrypt.hash(password, 10);
   }
+
   try {
+    if (is_savedlife === true) {
+      const updateData = await User.findByIdAndUpdate(_id, { $push: { donation_history: currentDate }, $set: { is_savedlife: true } });
+      const counter = await Statistics.findOne();
+      counter.donations_count += 1;
+      await counter.save();
+      if (updateData) {
+        return res.json({ message: "Updated successfully", data: updateData });
+      }
+    } else if (is_savedlife === false) {
+      const updateData = await User.findByIdAndUpdate(_id, { $set: { is_savedlife: false } });
+      if (updateData) {
+        return res.json({ message: "Updated successfully" });
+      }
+    }
     const updateData = passwordUpdate ? { ...req.body, password: newPassword } : req.body;
     await User.findByIdAndUpdate(_id, updateData);
-    res.json({ message: "updated successfully" });
+    res.json({ message: "Updated successfully" });
   } catch (error) {
-    res.status(400).json({ error: "something went wrong!" });
+    res.status(400).json({ error: "Something went wrong!" });
   }
 };
 export const userGet = async (req, res) => {

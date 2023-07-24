@@ -20,6 +20,10 @@ import Donors from '../pages/admin/pages/Donors'
 import BloodGroups from '../pages/admin/pages/BloodGroups'
 import BloodRequests from '../pages/admin/pages/BloodRequests'
 import DonorSub from '../pages/admin/pages/DonorSub'
+import DonationHistory from "../components/DonationHistory";
+import AdminProtected from "./AdminProtected";
+import UserProtected from "./UserProtected";
+import ContactUs from "../pages/admin/pages/ContactUs";
 
 const AppRoutes = () => {
   return (
@@ -30,19 +34,28 @@ const AppRoutes = () => {
         <Route path="/donor/register" element={<Layout><Register /></Layout>} />
         <Route path="/forget-password" element={<Layout><ForgetPassword /></Layout>} />
         <Route path="/reset/:token" element={<Layout><ResetPassword /></Layout>} />
+
+        <Route element={<UserProtected/>}>
         <Route path="/donor/profile" element={<Layout><DonorProfile /></Layout>} />
+        <Route path="/donor/history" element={<Layout><DonationHistory /></Layout>} />
+        <Route path="/email-verification" element={<Layout><VerifyEmail /></Layout>} />
+        <Route path="/email-verification-status/:token" element={<Layout><EmailVerificationStatus /></Layout>} />
+        </Route>
+        
         <Route path="/donate" element={<Layout><Donate /></Layout>} />
         <Route path="/get-help" element={<Layout><Help /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
         <Route path="/find-donor" element={<Layout><FindDonor /></Layout>} />
         <Route path="/events/:id" element={<Layout><EventDetails /></Layout>} />
-        <Route path="/email-verification" element={<Layout><VerifyEmail /></Layout>} />
-        <Route path="/email-verification-status/:token" element={<Layout><EmailVerificationStatus /></Layout>} />
         <Route path="/admin" element={<AdminLogin />} />
+        <Route element={<AdminProtected/>}>
         <Route path="/admin/donors" element={<AdminLayout><Donors/></AdminLayout>} />
         <Route path="/admin/blood-group" element={<AdminLayout><BloodGroups/></AdminLayout>} />
         <Route path="/admin/donor-requests" element={<AdminLayout><DonorSub/></AdminLayout>} />
         <Route path="/admin/patient-requests" element={<AdminLayout><BloodRequests/></AdminLayout>} />
+        <Route path="/admin/contact-us" element={<AdminLayout><ContactUs/></AdminLayout>} />
+        </Route> 
+      
       </Routes>
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Input, Typography } from "@material-tailwind/react";
+import { Input, Spinner, Typography } from "@material-tailwind/react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { InformationCircleIcon } from "@heroicons/react/24/solid";
@@ -27,11 +27,8 @@ const AdminLogin = () => {
   });
 
   function onSubmit(data) {
-    console.log(data);
     login(data);
   }
-
-  console.log(response);
 
   useEffect(() => {
     if (response?.error) {
@@ -92,9 +89,15 @@ const AdminLogin = () => {
               Forgot Password?
             </NavLink>
           </div>
-          <button type="submit" className="mt-3 bg-secondary text-white relative w-full inline-flex items-center justify-center p-4  py-2 overflow-hidden font-medium transition duration-300 ease-out border border-secondary rounded-lg shadow-md group hover:bg-opacity-50">
-            Login
-          </button>
+          {response?.isLoading ? (
+            <div className="mt-3 relative w-full inline-flex items-center justify-center p-4  py-2 overflow-hidden font-medium text-secondary transition duration-300 ease-out border border-secondary rounded-lg shadow-md">
+              <Spinner color="red" />
+            </div>
+          ) : (
+            <button type="submit" className="mt-3 bg-secondary text-white relative w-full inline-flex items-center justify-center p-4  py-2 overflow-hidden font-medium transition duration-300 ease-out border border-secondary rounded-lg shadow-md group hover:bg-opacity-50">
+              Login
+            </button>
+          )}
         </form>
       </div>
     </section>

@@ -32,7 +32,6 @@ const UserSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
     },
     mobile_number: {
       type: Number,
@@ -54,9 +53,7 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    last_savedlife: {
-      type: String,
-    },
+    donation_history: [],
     is_active: {
       type: Boolean,
       default: true,

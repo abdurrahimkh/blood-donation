@@ -28,3 +28,15 @@ export const donations_get_all = async (req, res) => {
     res.status(400).json({ error: "Something went wrong!" });
   }
 };
+
+export const donation_get_one = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const resp = await Donation.find({ donation_by: id });
+    if (resp) {
+      return res.json({ data: resp });
+    }
+  } catch (error) {
+    res.status(400).json({ error: "Something went wrong!" });
+  }
+};

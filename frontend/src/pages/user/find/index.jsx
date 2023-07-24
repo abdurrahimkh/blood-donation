@@ -13,13 +13,18 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { cities as city } from "../../../constants";
 import { toast } from "react-hot-toast";
+import { useMediaQuery } from "@mui/material";
 
 const FindDonor = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [post, response] = usePostRequestMutation();
 
+  const isMobile = useMediaQuery("(max-width:600px)");
+  isMobile;
+
   const cityRef = useRef(null);
   const bloodTypeRef = useRef(null);
+  const contentRef = useRef(null);
 
   const [params, setParams] = useState(null);
 
@@ -44,7 +49,7 @@ const FindDonor = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     defaultValues: {
       name: "",
@@ -100,6 +105,20 @@ const FindDonor = () => {
     }
   }, [response]);
 
+  const handleCopyClick = ({ phoneNumber }) => {
+    if (isMobile) {
+      window.location.href = `tel:${phoneNumber}`;
+    } else {
+      if (contentRef.current) {
+        const content = contentRef.current.innerText;
+        navigator.clipboard
+          .writeText(content)
+          .then(() => toast.success("Phone number copied to clipboard!"))
+          .catch((error) => console.error("Failed to copy content:", error));
+      }
+    }
+  };
+
   return (
     <>
       <section className="py-6  bg-gray-100 text-gray-800">
@@ -147,13 +166,16 @@ const FindDonor = () => {
                       <h3 className="text-sm leading-6">Name : {card.name}</h3>
                       <h3 className="text-sm leading-6">City : {card.city}</h3>
                       <h3 className="text-sm leading-6">Contact : 0{card.mobile_number}</h3>
+                      <p className="hidden" ref={contentRef}>
+                        0{card.mobile_number}
+                      </p>
                       <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-600 mt-2">
-                        <span className="font-bold">{moment(card?.updatedAt).fromNow()}</span>
+                        <span className="font-bold">{moment(card?.createdAt).fromNow()}</span>
                         <div className="center gap-3">
-                          <a href={`http://wa.me/+92${card?.mobile_number}`}>
+                          <a href={`http://wa.me/+92${card?.mobile_number}`} target="_blank">
                             <img src="/icons/whatsapp.png" alt="icon" className="w-6 hover:cursor-pointer" />
                           </a>
-                          <img src="/icons/phone-call.png" alt="icon" className="w-6 hover:cursor-pointer" />
+                          <img onClick={() => handleCopyClick(card?.mobile_number)} src="/icons/phone-call.png" alt="icon" className="w-6 hover:cursor-pointer" />
                         </div>
                       </div>
                     </div>
@@ -172,7 +194,7 @@ const FindDonor = () => {
           <h1 className="text-3xl font-brooklyn font-semibold text-gray-800 text-center mb-10">
             Request <span className="text-secondary ">Donation</span>
           </h1>
-          <div className="flex">
+          <div className="center flex-col lg:flex-row gap-5">
             <div className="lg:py-6 lg:mr-28 lg:ml-20">
               <div className="p-4 py-6 rounded-lg bg-white w-[28rem] md:p-0">
                 <form onSubmit={handleSubmit(onSubmit)}>

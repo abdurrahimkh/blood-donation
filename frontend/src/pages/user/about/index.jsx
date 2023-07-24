@@ -10,7 +10,6 @@ import Banner from "../help/Banner";
 const About = () => {
   return (
     <>
-      {/* <AboutSlider /> */}
       <Banner image={"about.jpeg"} title={"About Us"} subtitle={"Get to Know Us"} />
       <section id="about-us">
         <div className="about">
@@ -25,7 +24,7 @@ const About = () => {
             </span>{" "}
             blood donors directly with people in blood need.{" "}
           </p>
-          <div className="flex gap-4 md:gap-0 md:block">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-0 md:block">
             <div className="about-col rounded-xl md:m-[2%] w-full mx-auto md:w-1/4 ">
               <div className="image center m-2">
                 <img src="./icons/about-blood.png" className="!w-[7rem]" />

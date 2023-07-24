@@ -41,7 +41,7 @@ const AdminLayout = ({ children }) => {
                         />
                       </svg>
                     </span>
-                    <span className="font-brooklyn ml-2 text-md tracking-wide truncate">Donors</span>
+                    <span className="font-brooklyn ml-2 text-[0.9rem] tracking-wide truncate">Donors</span>
                   </NavLink>
                 </li>
                 <li className="px-5 hidden md:block">
@@ -60,7 +60,7 @@ const AdminLayout = ({ children }) => {
                         />
                       </svg>
                     </span>
-                    <span className="font-brooklyn ml-2 text-md tracking-wide truncate">Blood Groups</span>
+                    <span className="font-brooklyn ml-2 text-[0.9rem] tracking-wide truncate">Blood Groups</span>
                   </NavLink>
                 </li>
 
@@ -76,7 +76,7 @@ const AdminLayout = ({ children }) => {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
                       </svg>
                     </span>
-                    <span className="font-brooklyn ml-2 text-md tracking-wide truncate">Blood Requests</span>
+                    <span className="font-brooklyn ml-2 text-[0.9rem] tracking-wide truncate">Blood Requests</span>
                   </NavLink>
                 </li>
                 <li>
@@ -86,7 +86,26 @@ const AdminLayout = ({ children }) => {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                       </svg>
                     </span>
-                    <span className="font-brooklyn ml-2 text-md tracking-wide truncate">Donor Submissions</span>
+                    <span className="font-brooklyn ml-2 text-[0.9rem] tracking-wide truncate">Donor Submissions</span>
+                  </NavLink>
+                </li>
+                <li className="px-5 hidden md:block">
+                  <div className="flex flex-row items-center mt-5 h-8">
+                    <div className="text-sm font-light tracking-wide text-gray-400 uppercase">Contact Us</div>
+                  </div>
+                </li>
+                <li>
+                  <NavLink to="/admin/contact-us" className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-black  pr-6">
+                    <span className="inline-flex justify-center items-center ml-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                        />
+                      </svg>
+                    </span>
+                    <span className="font-brooklyn ml-2 text-[0.9rem] tracking-wide truncate">Messages</span>
                   </NavLink>
                 </li>
               </ul>

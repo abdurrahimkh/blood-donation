@@ -5,7 +5,6 @@ import { useResetPasswordMutation } from "../api";
 import Loader from "./Loader";
 const ResetPassword = () => {
   const { token } = useParams();
-  console.log(token);
   const [resetPassword, response] = useResetPasswordMutation();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +27,6 @@ const ResetPassword = () => {
     handleResponse();
   }, [response]);
 
-  console.log(response);
   return (
     <section className="size-page">
       <div>

@@ -5,6 +5,7 @@ import { useGetDonationAllQuery } from "../../../api";
 import { Spinner } from "@material-tailwind/react";
 import { getBloodGroupRepresentation } from "../../../constants";
 import { retry } from "@reduxjs/toolkit/dist/query";
+import { extractTime } from "../../../utils";
 
 const DonorSub = () => {
   const { data, isLoading } = useGetDonationAllQuery();
@@ -48,30 +49,13 @@ const DonorSub = () => {
     return formattedDate;
   }
 
-  function extractTime(dateString) {
-    const dateObject = new Date(dateString);
-    const hours = String(dateObject.getHours()).padStart(2, "0");
-    const minutes = String(dateObject.getMinutes()).padStart(2, "0");
-    const seconds = String(dateObject.getSeconds()).padStart(2, "0");
-    const formattedTime = `${hours}:${minutes}:${seconds}`;
-    return formattedTime;
-  }
-
   const todayRequests = data && data?.data.filter((obj) => obj.date == today());
-
-  console.log(data?.data);
 
   return (
     <div className="px-3 py-1">
       <div className="flex gap-2 ml-3">
         <StateCard title="Donations" number={data && data?.data.length}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-10 w-10 stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-            />
-          </svg>
+          <img src="/icons/donor-submission.png" alt="icon" className="w-9 h-9 object-cover" />
         </StateCard>
       </div>
       {isLoading ? (

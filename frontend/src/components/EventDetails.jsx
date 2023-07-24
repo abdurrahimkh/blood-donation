@@ -4,7 +4,6 @@ import { eventsList } from "../constants";
 
 const EventDetails = () => {
   const { id } = useParams();
-  console.log(typeof id);
   const event = eventsList.find((event) => event.id === Number(id));
 
   return (

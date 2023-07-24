@@ -1,20 +1,22 @@
 import React from "react";
 import StateCard from "../../../components/StateCard";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { useGetDonorsAllQuery } from "../../../api";
+import { useGetDonorsAllQuery, useUpdateProfileMutation } from "../../../api";
 import { Spinner } from "@material-tailwind/react";
 import { getBloodGroupRepresentation } from "../../../constants";
+import { Switch } from "@mui/material";
 
 const Donors = () => {
   const { data, isLoading } = useGetDonorsAllQuery();
+  const [update, response] = useUpdateProfileMutation();
 
   const columns = [
     { field: "_id", headerName: "ID", width: 150 },
     { field: "name", headerName: "Name", width: 150 },
     {
       field: "blood_group",
-      headerName: "Blood Group",
-      width: 150,
+      headerName: "Group",
+      width: 50,
       renderCell: (cellValues) => {
         return getBloodGroupRepresentation(cellValues.formattedValue);
       },
@@ -22,19 +24,37 @@ const Donors = () => {
     { field: "mobile_number", headerName: "Phone Number", width: 150 },
     { field: "city", headerName: "City", width: 150 },
     { field: "createdAt", headerName: "Join Date", width: 160 },
+    {
+      field: "is_active",
+      // headerName: "Active Status",
+      headerName: `${response?.isLoading ? "Loading" : "Active Status"}`,
+      width: 150,
+      renderCell: (cellValues) => {
+        return (
+          <Switch
+            checked={cellValues.row.is_active}
+            onChange={(event) => {
+              handleActive(event, cellValues.row._id);
+            }}
+          />
+        );
+      },
+    },
   ];
-
+  function handleActive(e, id) {
+    update({
+      data: { is_active: e.target.checked },
+      id,
+    });
+  }
   return (
     <div className="px-3 py-1">
       <div className="flex gap-2 ml-3">
         <StateCard title="Donors" number={data && data?.data.length}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-10 w-10 stroke-current text-blue-800 dark:text-gray-800 transform transition-transform duration-500 ease-in-out">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-            />
-          </svg>
+          <img src="/icons/donors.png" alt="icon" className="w-9 h-9 object-cover" />
+        </StateCard>
+        <StateCard title="Donations" number={data && data?.donations_count}>
+          <img src="/icons/donations.png" alt="icon" className="w-9 h-9 object-cover" />
         </StateCard>
       </div>
       {isLoading ? (
@@ -52,7 +72,7 @@ const Donors = () => {
                 quickFilterProps: { debounceMs: 500 },
               },
             }}
-            rows={data?.data}
+            rows={data?.data || []}
             columns={columns}
             pageSize={5}
             rowsPerPageOptions={[5]}

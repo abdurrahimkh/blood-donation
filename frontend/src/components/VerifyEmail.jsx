@@ -6,7 +6,6 @@ import { toast } from "react-hot-toast";
 const VerifyEmail = () => {
   const { state } = useLocation();
   const [resend, response] = useResendEmailMutation();
-  console.log(response);
 
   function handleResend() {
     resend(state.email);

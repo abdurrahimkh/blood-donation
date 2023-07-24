@@ -55,7 +55,7 @@ const Donate = () => {
   });
 
   function onSubmit(data) {
-    post({ ...data, blood_group: data.bloodGroup, mobile_number: data.phone });
+    post({ ...data, blood_group: data.bloodGroup, mobile_number: data.phone, donation_by: user._id });
 
     reset();
   }
@@ -108,11 +108,11 @@ const Donate = () => {
           <h1 className="text-3xl font-brooklyn font-semibold text-gray-800 text-center mb-10">
             Ready For <span className="text-secondary ">Donation</span>
           </h1>
-          <p className="px-44 font-brooklyn font-semibold text-gray-800 text-center mb-10">Please take a moment to fill out the form below, indicating your willingness to donate blood on a specific date and time. Your compassion and willingness to help are deeply appreciated.</p>
+          <p className="px-2 lg:px-44 font-brooklyn font-semibold text-gray-800 text-center mb-10">Please take a moment to fill out the form below, indicating your willingness to donate blood on a specific date and time. Your compassion and willingness to help are deeply appreciated.</p>
 
-          <div className="flex">
+          <div className="center flex-col lg:flex-row gap-5">
             <div className="lg:py-6 lg:mr-28 lg:ml-20">
-              <div className="p-4 py-6 rounded-lg bg-white w-[28rem] md:p-0">
+              <div className="p-4 py-6 rounded-lg bg-white w-[23rem] sm:[26rem] md:w-[28rem] md:p-0">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
                     <Input label="Donor Name" type="text" className="py-[1.3rem]" error={Boolean(errors?.name)} {...register("name")} />
